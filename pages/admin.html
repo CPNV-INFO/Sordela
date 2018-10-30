@@ -1,0 +1,55 @@
+<?php if (isset($message)) { ?>
+<div id="alert"><?= $message ?></div>
+<?php } ?>
+
+<form method="post" id="adminform">
+    <table class="table table-bordered">
+        <tr>
+            <th>Personne</th>
+            <th>Contact</th>
+            <th>Formation</th>
+            <th>PIN</th>
+            <th>Diplôme</th>
+        </tr>
+        <?php foreach ($persons as $person) { ?>
+        <tr>
+            <td><?= $person['nickname'] ?></td>
+            <td><?= $person['contact'] ?></td>
+            <td>
+            <?php
+            switch ($person['cursus']) {
+                case 1: echo "CFC"; break;
+                case 2: echo "MPT"; break;
+                case 3: echo "FPA"; break;
+                case 4: echo "Tech Dev"; break;
+                case 5: echo "Tech Sys"; break;
+                default: echo "Uh ???";
+            }
+            ?>
+            </td>
+            <td class="pinbox"><?= $person['pin'] ?></td>
+            <td><button type="button" name="diploma" data-pid="<?= $person['id'] ?>">Générer</button></td>
+        </tr>
+        <?php } ?>
+        <tr>
+            <td><input type="text" name="newnickname"></td>
+            <td><input type="text" name="newcontact"></td>
+            <td>
+                <select name="newcursus">
+                    <option value="1" selected>CFC 4ans</option>
+                    <option value="2">Matu Intégrée</option>
+                    <option value="3">FPA 2ans</option>
+                    <option value="4">Tech Dev</option>
+                    <option value="5">Tech Sys</option>
+                </select>
+            </td>
+            <td>
+                <button type="submit" name="newperson">Créer</button>
+                <input type="hidden" id="pid" name="pid">
+            </td>
+        </tr>
+    </table>
+</form>
+<a href="/">
+    <button>Retour</button>
+</a>

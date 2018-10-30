@@ -1,0 +1,76 @@
+
+#homediv {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+html,
+body {
+	font-family:'Helvetica'
+	height: 100%;
+ }
+
+.orange {
+	background-color: #FFB640;
+}
+
+.challenge {
+	text-align: center;
+	width: 80px;
+}
+
+.grade {
+	background-color: #005cbf;
+	color: white;
+	font-size: large;
+	font-weight: bold;
+	border-radius: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 4px;
+	padding-top: 4px;
+	margin-top: 5px;
+}
+
+#alert {
+	text-align: center;
+	color: white;
+	font-size: larger;
+	font-weight: bold;
+	padding: 5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 100px;
+	background-color: #6c87ff;
+	width: 250px;
+	border: 2px solid #2042af;
+}
+
+.bulletin {
+	margin: 20px;
+}
+
+#finalAverage {
+	text-align: center;
+	vertical-align: middle;
+	color: white;
+	font-size: large;
+	font-weight: bolder;
+	padding: 3px;
+}
+
+.pinbox {
+	color: white;
+}
+
+.pinbox:hover {
+	color: black;
+}
+
+.typewriterText {
+	font-family: "Courier New";
+	font-size: small;
+	font-weight: bolder;
+}

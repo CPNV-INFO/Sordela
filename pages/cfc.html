@@ -1,0 +1,255 @@
+<?php if (isset($message)) { ?>
+<div id="alert"><?= $message ?></div>
+<?php } ?>
+
+
+<table class="bulletin" style="border:none;">
+    <tbody>
+    <tr style="border:none;">
+        <td style="border:none; width:100px"><img alt="logo" src="images/logo.png" style="width:60px"></td>
+        <td style="border:none">
+            <h3>Bulletin de notes de <?= $nickname ?></h3>
+        </td>
+        <td style="width: 400px; text-align: right"><a href="/"><button>Ok</button></a> </td>
+    </tr>
+    </tbody>
+</table>
+<table class="table-bordered bulletin" style="-webkit-print-color-adjust:exact;">
+    <tbody>
+    <tr>
+        <td rowspan="2" width="60">CFC Informaticien d'entreprise</td>
+        <td class="td-header" colspan="4">Année scolaire <br> 2018 - 2019</td>
+        <td class="td-header" rowspan="2" width="2" style="font-size:16px; background-color: lightgrey;">1</td>
+        <td class="td-header" colspan="4">Année scolaire <br> 2019 - 2020</td>
+        <td class="td-header" rowspan="2" width="2" style="font-size:16px; background-color: lightgrey;">2</td>
+        <td class="td-header" colspan="4">Année scolaire <br> 2020 - 2021</td>
+        <td class="td-header" rowspan="2" width="2" style="font-size:16px; background-color: lightgrey;">3</td>
+        <td class="td-header" colspan="4">Année scolaire <br> 2021 - 2022</td>
+        <td class="td-header" rowspan="2" width="2" style="font-size:16px; background-color: lightgrey;">4</td>
+        <td rowspan="2" class="whitecell noborder" style="font-size:12px">Final</td>
+    </tr>
+    <tr>
+        <td class="td-header" width="68" colspan="2">Semestre 1</td>
+        <td class="td-header" width="68" colspan="2">Semestre 2</td>
+        <td class="td-header" width="68" colspan="2">Semestre 3</td>
+        <td class="td-header" width="68" colspan="2">Semestre 4</td>
+        <td class="td-header" width="68" colspan="2">Semestre 5</td>
+        <td class="td-header" width="68" colspan="2">Semestre 6</td>
+        <td class="td-header" width="68" colspan="2">Semestre 7</td>
+        <td class="td-header" width="68" colspan="2">Semestre 8</td>
+    </tr>
+    <tr>
+        <td colspan="22" width="100%" class="orange">Groupe - Compétences en informatique - 30%</td>
+    </tr>
+    <tr>
+        <td width="60" class="title">ICT</td>
+        <td class="challenge" data-challengeid="1" data-questionid="<?= $chals[1]['qid'] ?>" data-question="<?= $chals[1]['question'] ?>" data-grade="<?= $chals[1]['grade'] ?>"><?= $chals[1]['text'] ?></td>
+        <td class="challenge" data-challengeid="2" data-questionid="<?= $chals[2]['qid'] ?>" data-question="<?= $chals[2]['question'] ?>" data-grade="<?= $chals[2]['grade'] ?>"><?= $chals[2]['text'] ?></td>
+        <td class="challenge" data-challengeid="4" data-questionid="<?= $chals[4]['qid'] ?>" data-question="<?= $chals[4]['question'] ?>" data-grade="<?= $chals[4]['grade'] ?>"><?= $chals[4]['text'] ?></td>
+        <td class="challenge" data-challengeid="5" data-questionid="<?= $chals[5]['qid'] ?>" data-question="<?= $chals[5]['question'] ?>" data-grade="<?= $chals[5]['grade'] ?>"><?= $chals[5]['text'] ?></td>
+        <td rowspan="2" style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td rowspan="2" style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td></td>
+        <td></td>
+        <td colspan="2" rowspan="2">&nbsp;</td>
+        <td rowspan="2" style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td colspan="2" rowspan="2">&nbsp;</td>
+        <td></td>
+        <td></td>
+        <td rowspan="2" style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td id="finalAverage" rowspan="2" style="background-color: <?= $average > 4 ? 'green' : 'red' ?>"><?= $average ?></td>
+    </tr>
+    <tr>
+        <td width="60" class="title">CIE</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td colspan="22" width="100%" class="orange">Groupe - Pratique Professionnelle - 30%</td>
+    </tr>
+    <tr>
+        <td width="60" class="title">Modules CPNV</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td colspan="22" width="100%" class="orange">Groupe - Culture générale - 20%</td>
+    </tr>
+    <tr>
+        <td width="60" class="title">Société</td>
+        <td class="challenge" data-challengeid="3" data-questionid="<?= $chals[3]['qid'] ?>" data-question="<?= $chals[3]['question'] ?>" data-grade="<?= $chals[3]['grade'] ?>"><?= $chals[3]['text'] ?></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td rowspan="2" style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td rowspan="2" style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td></td>
+        <td></td>
+        <td colspan="2" rowspan="2">&nbsp;</td>
+        <td rowspan="2" style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td colspan="2" rowspan="2">&nbsp;</td>
+        <td colspan="2" rowspan="2">TPA: <br>Examen:</td>
+        <td rowspan="2" style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td rowspan="2"></td>
+    </tr>
+    <tr>
+        <td width="60" class="title">Langue et Communication</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td colspan="22" width="100%" class="orange">Groupe - Compétences de base élargies - 20%</td>
+    </tr>
+    <tr>
+        <td width="60" class="title">Anglais</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td rowspan="4" style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td></td>
+        <td></td>
+        <td class="challenge" data-challengeid="6" data-questionid="<?= $chals[6]['qid'] ?>" data-question="<?= $chals[6]['question'] ?>" data-grade="<?= $chals[6]['grade'] ?>"><?= $chals[6]['text'] ?></td>
+        <td></td>
+        <td rowspan="4" style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td></td>
+        <td></td>
+        <td colspan="2" rowspan="4">&nbsp;</td>
+        <td rowspan="4" style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td colspan="2" rowspan="4">&nbsp;</td>
+        <td></td>
+        <td></td>
+        <td rowspan="4" style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td rowspan="4"></td>
+    </tr>
+    <tr>
+        <td width="60" class="title">Mathématiques</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td width="60" class="title">Economie d'entreprise</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td width="60" class="title">Sciences Naturelles</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td colspan="22" width="100%" class="orange">Note Globale</td>
+    </tr>
+    <tr>
+        <td width="60" class="title">&nbsp;</td>
+        <td colspan="2"></td>
+        <td colspan="2"></td>
+        <td></td>
+        <td colspan="2"></td>
+        <td colspan="2"></td>
+        <td></td>
+        <td colspan="2"></td>
+        <td colspan="2"></td>
+        <td></td>
+        <td colspan="2"></td>
+        <td colspan="2"></td>
+        <td></td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="ModalChallenge" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="challengeText">sss</h5>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <input name="challengeResponse" id="challengeResponse" type="text">
+                    <input type="hidden" name="questionid" id="questionid">
+                    <input type="hidden" name="challengeid" id="challengeid">
+                    <input type="hidden" name="pin" id="pin" value="<?= $pin ?>">
+                    <button type="submit" class="btn btn-primary" name="challengeSubmit" id="challengeSubmit">Ok</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
