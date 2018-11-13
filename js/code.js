@@ -3,7 +3,7 @@ $(document).ready(function () {
     // prepare bulletin for user clicks
     $('.challenge').each(function (el) {
         // display grade if exists
-        if ($(this).data('grade') > 0) $(this).html($(this).html()+'<br><span class="grade">'+$(this).data('grade')+'</span>')
+        if ($(this).data('grade') > 0) $(this).html($(this).html() + '<br><span class="grade">' + $(this).data('grade') + '</span>')
         // on click, prepare modal and show it
         $(this).click(function () {
             pin = $('#pin').val()
@@ -24,7 +24,20 @@ $(document).ready(function () {
     })
 
     // Remove message
-    setTimeout(function(){
+    setTimeout(function () {
         $('#alert').fadeOut();
-    },2000);
+    }, 2000);
+
+    // Print pin code
+    $('.pinbox').click(function () {
+        w = window.open('/pages/pinlabel.html', '_blank')
+        let pb = $(this)
+
+        // ugly but I didn't find a way to wait properly for the w's DOM to load
+        setTimeout(function () {
+            w.document.getElementById('pin').innerHTML = pb.html()
+            w.print()
+            w.close()
+        }, 500)
+    })
 })

@@ -74,3 +74,33 @@ body {
 	font-size: small;
 	font-weight: bolder;
 }
+
+.techbtitle {
+	text-align: center;
+	font-size: larger;
+	font-weight: bolder;
+	background-color: #d2f3c3;
+	border: 1px solid #69d78c;
+}
+
+.tableheaderrow {
+	font-size: larger;
+	font-weight: bolder;
+	background-color: #d2f3c3;
+	border: 1px solid #69d78c;
+	height: 60px;
+	vertical-align: center;
+}
+
+.bordered {
+	border: 1px solid black;
+}
+
+.branchcell {
+	font-weight: bolder;
+	width: 80px;
+}
+
+.techtable {
+	width: 900px;
+}

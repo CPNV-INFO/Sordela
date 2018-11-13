@@ -1,0 +1,220 @@
+<?php if (isset($message)) { ?>
+<div id="alert"><?= $message ?></div>
+<?php } ?>
+
+
+<table class="bulletin techtable" style="border:none;">
+    <tbody>
+    <tr style="border:none;">
+        <td>
+            <img alt="logo" src="images/logo.png" style="width:60px">
+            <img alt="logo" src="images/logoes.png" style="width:120px; float:right;">
+        </td>
+    </tr>
+    <tr>
+        <td class="techbtitle">
+            Résultats de formation<br>
+            Technicien-ne ES en Informatique<br>
+            Spécialisation « Développement d’applications »<br>
+            Session 2015-2017
+        </td>
+    </tr>
+    <tr>
+        <td style="height: 80px; vertical-align: center">
+            <h4>Etudiant-e: <?= $nickname ?></h4><a href="/"><button>Ok</button></a>
+        </td>
+    </tr>
+    <tr>
+        <td style="height: 180px; vertical-align: center">
+            <span style="font-weight: bolder; text-decoration-line: underline;">Note:</span>
+            <ul>
+                <li>Sauf indication contraire, tous les modules mentionnés ont une durée de 40 périodes, soit 30h.</li>
+                <li>Les notes de modules sont arrondies au demi-point et ont pu faire l’objet d’une remédiation.</li>
+            </ul>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="bulletin techtable" style="border:none;">
+    <tbody>
+    <tr>
+        <td class="tableheaderrow"><h4>Note du travail de diplôme: </h4></td>
+        <td class="tableheaderrow challenge" data-challengeid="7" data-questionid="<?= $chals[7]['qid'] ?>" data-question="<?= $chals[7]['question'] ?>" data-grade="<?= $chals[7]['grade'] ?>"><?= $chals[7]['text'] ?></td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="bulletin techtable" style="border:none;">
+    <tbody>
+    <tr>
+        <td class="tableheaderrow" colspan="5">
+            <h4>Moyennes semestrielles et examen théorique final de branches générales</h4>
+        </td>
+    </tr>
+    <tr>
+        <td class="bordered">&nbsp;</td><td class="bordered">Semestre 1</td><td class="bordered">Semestre 2</td><td class="bordered">Semestre 3</td><td class="bordered">Semestre 4</td>
+    </tr>
+    <tr>
+        <td class="bordered">Français</td><td class="bordered">&nbsp;</td>&nbsp;<td class="bordered">&nbsp;</td><td class="bordered">&nbsp;</td><td class="bordered">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered">Anglais</td><td class="bordered">&nbsp;</td>&nbsp;<td class="bordered">&nbsp;</td><td class="bordered">&nbsp;</td><td class="bordered">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered">Gestion et Organisation</td><td class="bordered">&nbsp;</td>&nbsp;<td class="bordered">&nbsp;</td><td class="bordered">&nbsp;</td><td class="bordered">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered">Mathématiques</td><td class="bordered">&nbsp;</td>&nbsp;<td class="bordered">&nbsp;</td><td class="bordered">&nbsp;</td><td class="bordered">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered">Physique</td><td class="bordered">&nbsp;</td>&nbsp;<td class="bordered">&nbsp;</td><td class="bordered">&nbsp;</td><td class="bordered">&nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="bulletin techtable" style="border:none;">
+    <tbody>
+    <tr>
+        <td class="tableheaderrow" colspan="3">
+            <h4>Modules de développement</h4>
+        </td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">JAV1</td><td class="bordered">Programmation et structuration en JAVA d’applications Android</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">MOB2</td><td class="bordered">Développement d’applications mobiles natives iOS en Swift</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">POO1</td><td class="bordered">MVC & ORM</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">POO2</td><td class="bordered">Design Patterns & Test Driven Development</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">UML1</td><td class="bordered">Modéliser des applications en UML, processus de développement</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">XML1</td><td class="bordered">Utiliser des outils de programmation XML pour la création d'un site (DTD, XSD, XPath, XSL, DOM, …)</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">HKG1</td><td class="bordered">Etude des failles de sécurité dans le code, implémentation des contre-mesures (XSS, CSRF, injections)</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="bulletin techtable" style="border:none;">
+    <tbody>
+    <tr>
+        <td class="tableheaderrow" colspan="3">
+            <h4>Modules liés à l’ingénierie Web </h4>
+        </td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">ASP1</td><td class="bordered">Développement d'un site de commerce électronique en ASP.NET</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">GRA1</td><td class="bordered">Photoshop : Retouche d’images bitmap et création d’une maquette graphique de site internet</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">GRA2</td><td class="bordered">Illustrator : Création d’une identité graphique vectorielle pour une entreprise</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">AWA1</td><td class="bordered">Animations web avancées (CSS, framework JS, SVG)</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">MOB1</td><td class="bordered">Développement d’applications web mobiles (Responsive Web Design, PhoneGap, jQuery Mobile)</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">PRW1</td><td class="bordered">Programmation Web (XHTML, CSS, Javascript, PHP), référencement, accessibilité</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">PRW2</td><td class="bordered">Programmation PHP : POO, MVC et frameworks</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">PRW3</td><td class="bordered">Programmation front-end avec librairies JS (React, Angular, …)</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">RIA1</td><td class="bordered">Rich Internet Application : Flux de syndication, Web Services (SOAP, REST), Ajax, POO JS, jQuery</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">RIA2</td><td class="bordered">Rich Internet Application : Utilisation et combinaison de services à travers des web API</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="bulletin techtable" style="border:none;">
+    <tbody>
+    <tr>
+        <td class="tableheaderrow" colspan="3">
+            <h4>Modules liés aux bases de données </h4>
+        </td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">DBM1</td><td class="bordered">Administration d’un serveur de données, Business Intelligence</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">SQL1</td><td class="bordered">MySQL : Manipuler des données à l'aide de SQL et modélisation des données</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">SQL2</td><td class="bordered">SQL Server : Installation, configuration, programmation T-SQL</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">BI1</td><td class="bordered">Business Intelligence</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="bulletin techtable" style="border:none;">
+    <tbody>
+    <tr>
+        <td class="tableheaderrow" colspan="3">
+            <h4>Modules Système </h4>
+        </td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">LIN1</td><td class="bordered">Linux : Découverte et utilisation avancée du système de fichiers et administration de base du Système</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">CLD2</td><td class="bordered">&nbsp;</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">SRW3</td><td class="bordered">Administration d'un serveur web avec IIS et Apache (HTTP, FTP, SSL)</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">VIR1</td><td class="bordered">Administration d'une plate-forme de virtualisation (vSphere, ESX, vCenter Server, SAN, DRS, HA)</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+<table class="bulletin techtable" style="border:none;">
+    <tbody>
+    <tr>
+        <td class="tableheaderrow" colspan="3">
+            <h4>Projets et Stage en entreprise </h4>
+        </td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">MAW1</td><td class="bordered">(65h) : Projet d’application de gestion d’une collection de films</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">MAW2</td><td class="bordered">(100h) : Projet collaboratif de site internet utilisant un framework PHP (MVC)</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">MAW3</td><td class="bordered">(120h) : Projet collaboratif d’application Web (POO, mobile, JS avancé)</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="bordered branchcell">Stage</td><td class="bordered">Stage en entreprise d’une durée minimale de 11 semaines effectué en début de 2ème année</td><td class="bordered branchcell">&nbsp;</td>
+    </tr>
+    </tbody>
+</table>

@@ -172,6 +172,9 @@ switch ($cursus)
     case 3:
         $page = "fpa";
         break;
+    case 4:
+        $page = "techdev";
+        break;
     case 9:
         $page = "admin";
         break;
