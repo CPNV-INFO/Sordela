@@ -1,0 +1,21 @@
+<?php if (isset($message)) { ?>
+<div id="alert"><?= $message ?></div>
+<?php } ?>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Branche</th>
+        <th>Question</th>
+        <th>Réponse</th>
+    </tr>
+    <?php foreach ($questions as $question) { ?>
+    <tr>
+        <td><?= $question['course'] ?></td>
+        <td><?= $question['question'] ?></td>
+        <td><?= $question['response'] ?></td>
+    </tr>
+    <?php } ?>
+</table>
+<a href="/">
+    <button>Retour</button>
+</a>

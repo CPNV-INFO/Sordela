@@ -10,7 +10,9 @@
         <td style="border:none">
             <h3>Bulletin de notes de <?= $nickname ?></h3>
         </td>
-        <td style="width: 400px; text-align: right"><a href="/"><button>Ok</button></a> </td>
+        <td style="width: 400px; text-align: right"><a href="/">
+            <button>Ok</button>
+        </a></td>
     </tr>
     </tbody>
 </table>
@@ -43,15 +45,15 @@
     </tr>
     <tr>
         <td width="60" class="title">ICT</td>
-        <td class="challenge" data-challengeid="1" data-questionid="<?= $chals[1]['qid'] ?>" data-question="<?= $chals[1]['question'] ?>" data-grade="<?= $chals[1]['grade'] ?>"><?= $chals[1]['text'] ?></td>
-        <td class="challenge" data-challengeid="2" data-questionid="<?= $chals[2]['qid'] ?>" data-question="<?= $chals[2]['question'] ?>" data-grade="<?= $chals[2]['grade'] ?>"><?= $chals[2]['text'] ?></td>
-        <td class="challenge" data-challengeid="4" data-questionid="<?= $chals[4]['qid'] ?>" data-question="<?= $chals[4]['question'] ?>" data-grade="<?= $chals[4]['grade'] ?>"><?= $chals[4]['text'] ?></td>
-        <td class="challenge" data-challengeid="5" data-questionid="<?= $chals[5]['qid'] ?>" data-question="<?= $chals[5]['question'] ?>" data-grade="<?= $chals[5]['grade'] ?>"><?= $chals[5]['text'] ?></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
         <td rowspan="2" style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td class="challenge" data-challengeid="2" data-questionid="<?= $chals[2]['qid'] ?>" data-question="<?= $chals[2]['question'] ?>" data-grade="<?= $chals[2]['grade'] ?>"><?= $chals[2]['text'] ?></td>
+        <td class="challenge" data-challengeid="10" data-questionid="<?= $chals[10]['qid'] ?>" data-question="<?= $chals[10]['question'] ?>" data-grade="<?= $chals[10]['grade'] ?>"><?= $chals[10]['text'] ?></td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td class="challenge" data-challengeid="12" data-questionid="<?= $chals[12]['qid'] ?>" data-question="<?= $chals[12]['question'] ?>" data-grade="<?= $chals[12]['grade'] ?>"><?= $chals[12]['text'] ?></td>
         <td rowspan="2" style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
         <td></td>
         <td></td>
@@ -82,10 +84,31 @@
         <td colspan="22" width="100%" class="orange">Groupe - Pratique Professionnelle - 30%</td>
     </tr>
     <tr>
-        <td width="60" class="title">Modules CPNV</td>
+        <td width="60" class="title" rowspan="2">Modules CPNV</td>
+        <td class="challenge" data-challengeid="15" data-questionid="<?= $chals[15]['qid'] ?>" data-question="<?= $chals[15]['question'] ?>" data-grade="<?= $chals[15]['grade'] ?>"><?= $chals[15]['text'] ?></td>
+        <td class="challenge" data-challengeid="13" data-questionid="<?= $chals[13]['qid'] ?>" data-question="<?= $chals[13]['question'] ?>" data-grade="<?= $chals[13]['grade'] ?>"><?= $chals[13]['text'] ?></td>
+        <td class="challenge" data-challengeid="19" data-questionid="<?= $chals[19]['qid'] ?>" data-question="<?= $chals[19]['question'] ?>" data-grade="<?= $chals[19]['grade'] ?>"><?= $chals[19]['text'] ?></td>
+        <td class="challenge" data-challengeid="14" data-questionid="<?= $chals[14]['qid'] ?>" data-question="<?= $chals[14]['question'] ?>" data-grade="<?= $chals[14]['grade'] ?>"><?= $chals[14]['text'] ?></td>
+        <td style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
         <td></td>
         <td></td>
+        <td class="challenge" data-challengeid="18" data-questionid="<?= $chals[18]['qid'] ?>" data-question="<?= $chals[18]['question'] ?>" data-grade="<?= $chals[18]['grade'] ?>"><?= $chals[18]['text'] ?></td>
         <td></td>
+        <td style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td class="challenge" data-challengeid="22" data-questionid="<?= $chals[22]['qid'] ?>" data-question="<?= $chals[22]['question'] ?>" data-grade="<?= $chals[22]['grade'] ?>"><?= $chals[22]['text'] ?></td>
+        <td class="challenge" data-challengeid="23" data-questionid="<?= $chals[23]['qid'] ?>" data-question="<?= $chals[23]['question'] ?>" data-grade="<?= $chals[23]['grade'] ?>"><?= $chals[23]['text'] ?></td>
+        <td colspan="2" rowspan="2" class="challenge" data-challengeid="25" data-questionid="<?= $chals[25]['qid'] ?>" data-question="<?= $chals[25]['question'] ?>" data-grade="<?= $chals[25]['grade'] ?>"><?= $chals[25]['text'] ?></td>
+        <td style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td colspan="2" rowspan="2">&nbsp;</td>
+        <td></td>
+        <td></td>
+        <td style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
+        <td rowspan="2" class="challenge" data-challengeid="26" data-questionid="<?= $chals[26]['qid'] ?>" data-question="<?= $chals[26]['question'] ?>" data-grade="<?= $chals[26]['grade'] ?>"><?= $chals[26]['text'] ?></td>
+    </tr>
+    <tr>
+        <td class="challenge" data-challengeid="17" data-questionid="<?= $chals[17]['qid'] ?>" data-question="<?= $chals[17]['question'] ?>" data-grade="<?= $chals[17]['grade'] ?>"><?= $chals[17]['text'] ?></td>
+        <td class="challenge" data-challengeid="20" data-questionid="<?= $chals[20]['qid'] ?>" data-question="<?= $chals[20]['question'] ?>" data-grade="<?= $chals[20]['grade'] ?>"><?= $chals[20]['text'] ?></td>
+        <td class="challenge" data-challengeid="4" data-questionid="<?= $chals[4]['qid'] ?>" data-question="<?= $chals[4]['question'] ?>" data-grade="<?= $chals[4]['grade'] ?>"><?= $chals[4]['text'] ?></td>
         <td></td>
         <td style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
         <td></td>
@@ -93,17 +116,12 @@
         <td></td>
         <td></td>
         <td style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td class="challenge" data-challengeid="21" data-questionid="<?= $chals[21]['qid'] ?>" data-question="<?= $chals[21]['question'] ?>" data-grade="<?= $chals[21]['grade'] ?>"><?= $chals[21]['text'] ?></td>
+        <td class="challenge" data-challengeid="11" data-questionid="<?= $chals[11]['qid'] ?>" data-question="<?= $chals[11]['question'] ?>" data-grade="<?= $chals[11]['grade'] ?>"><?= $chals[11]['text'] ?></td>
         <td style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
         <td></td>
         <td></td>
-        <td></td>
-        <td></td>
         <td style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
-        <td></td>
     </tr>
     <tr>
         <td colspan="22" width="100%" class="orange">Groupe - Culture générale - 20%</td>
@@ -153,8 +171,8 @@
         <td></td>
         <td rowspan="4" style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
         <td></td>
-        <td></td>
         <td class="challenge" data-challengeid="6" data-questionid="<?= $chals[6]['qid'] ?>" data-question="<?= $chals[6]['question'] ?>" data-grade="<?= $chals[6]['grade'] ?>"><?= $chals[6]['text'] ?></td>
+        <td></td>
         <td></td>
         <td rowspan="4" style="background-color:lightgrey; text-align: center; vertical-align: middle;"></td>
         <td></td>

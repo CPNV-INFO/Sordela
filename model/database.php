@@ -8,9 +8,9 @@
 function dbConnection()
 {
     $host = 'localhost';
-    $db   = 'sordela';
-    $user = 'root';
-    $pass = 'root';
+    $db   = 'sordela_db';
+    $user = 'sordela_db';
+    $pass = 'Pa$$w0rd';
     $charset = 'utf8mb4';
 
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";

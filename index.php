@@ -11,7 +11,7 @@
 </head>
 <body>
 <?php
-
+error_reporting(E_ERROR | E_PARSE);
 require_once("const.php"); // some useful values
 
 require_once("model/database.php"); // for db connection
@@ -19,7 +19,6 @@ $pdo = dbConnection();
 
 $page = "home";
 extract($_POST);
-//error_log(print_r($_POST,1));
 
 if (isset($diploma)) // request to display a diploma
 {
@@ -73,7 +72,10 @@ if (isset($challengeSubmit))
     extract($stmt->fetch(PDO::FETCH_ASSOC));
     if ($responseType == 2) // grade direct input
     {
-        $grade = intVal($challengeResponse);
+        if ($challengeResponse >= 1 && $challengeResponse <= 6)
+            $grade = intVal($challengeResponse);
+        else
+            $message = "C'est cela...oui...$grade";
     }
     else
     {
@@ -123,6 +125,15 @@ if (isset($pin))
         $stmt->execute();
         $persons = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } else // participant: search person in db
+        if ($pin == 9998)
+        {
+            $cursus = 98;
+
+            // Get all questions
+            $stmt = $pdo->prepare('select course, question, response from challenges inner join questions on challenge_id = challenges.id');
+            $stmt->execute();
+            $questions = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } else // participant: search person in db
     {
         $stmt = $pdo->prepare('select id, nickname, cursus from persons where PIN = :pin');
         $stmt->execute(['pin' => $pin]);
@@ -132,9 +143,15 @@ if (isset($pin))
             $name = "$firstname $lastname";
 
             // Get average
-            $stmt = $pdo->prepare('select round(avg(gradeValue),1) as average from grades where person_id = :id;');
+            $stmt = $pdo->prepare('select count(*) as nbChallenges from challenges');
+            $stmt->execute();
+            extract($stmt->fetch(PDO::FETCH_ASSOC)); // $nbChallenges
+
+            $stmt = $pdo->prepare('select sum(gradeValue) as totalPoints from grades where person_id = :id;');
             $stmt->execute(['id' => $id]);
-            extract($stmt->fetch(PDO::FETCH_ASSOC));
+            extract($stmt->fetch(PDO::FETCH_ASSOC)); // totalPoints
+
+            $average = round($totalPoints/$nbChallenges,1);
 
             // Get the questions
             $stmt = $pdo->prepare('select id, course from challenges');
@@ -177,6 +194,9 @@ switch ($cursus)
         break;
     case 9:
         $page = "admin";
+        break;
+    case 98:
+        $page = "admin2";
         break;
     case 99:
         $page = "diploma";
