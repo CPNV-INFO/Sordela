@@ -105,3 +105,10 @@ body {
 .techtable {
 	width: 900px;
 }
+
+#vnumber {
+	font-size: xx-small;
+	font-style: italic;
+	color: gray;
+	float: right;
+}
