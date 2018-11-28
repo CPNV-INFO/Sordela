@@ -1,0 +1,11 @@
+<?php
+	ob_clean();
+	require('fpdf.php'); //Used to print pin code
+	$test = new FPDF('L','mm',array(40,24));
+	$test->AddPage();
+	$test->SetFont('Arial','B',24); 
+	$test->SetMargins(0,0,0);	
+	$test->SetAutoPageBreak(0);
+	$test->Cell(0,6,$printPIN);
+	$test->Output('pincode.pdf','I');
+?>

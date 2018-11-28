@@ -20,6 +20,11 @@ $pdo = dbConnection();
 $page = "home";
 extract($_POST);
 
+if (isset($printPIN))
+{
+	$cursus = 97;
+}
+
 if (isset($diploma)) // request to display a diploma
 {
     // get person info
@@ -195,6 +200,9 @@ switch ($cursus)
     case 9:
         $page = "admin";
         break;
+	case 97:
+		$page = "printPIN";
+		break;
     case 98:
         $page = "admin2";
         break;

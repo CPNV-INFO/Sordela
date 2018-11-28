@@ -29,6 +29,7 @@ $(document).ready(function () {
     }, 2000);
 
     // Print pin code
+	/*
 	$('.pinbox').click(function () {
         w = window.open('/pages/pinlabel.html', '_blank')
         let pb = $(this)
@@ -40,4 +41,5 @@ $(document).ready(function () {
             //w.close()
         }, 500)
     })
+	*/
 })

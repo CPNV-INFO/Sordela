@@ -9,6 +9,7 @@
             <th>Contact</th>
             <th>Formation</th>
             <th>PIN</th>
+            <th>PIN</th>
             <th>Diplôme</th>
         </tr>
         <?php foreach ($persons as $person) { ?>
@@ -27,7 +28,7 @@
             }
             ?>
             </td>
-            <td class="pinbox"><?= $person['pin'] ?></td>
+			<td><input class="pinbox" type="submit" name="printPIN" value="<?= $person['pin'] ?>" style="background-color: #0000; width: 80%;"></td>
             <td><button type="button" name="diploma" data-pid="<?= $person['id'] ?>">Générer</button></td>
         </tr>
         <?php } ?>
