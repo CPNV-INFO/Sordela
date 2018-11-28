@@ -8,7 +8,7 @@
             <th>Personne</th>
             <th>Contact</th>
             <th>Formation</th>
-            <th>PIN</th>
+            <th width="10%">PIN</th>
             <th>Diplôme</th>
         </tr>
         <?php foreach ($persons as $person) { ?>
@@ -29,7 +29,7 @@
             </td>
 			<td>
 				<input type="submit" name="printpin" value="<?= $person['pin'] ?>" title="Imprimer" class="printpinbtn">
-				<input type="submit" name="sendpin" value="<?= $person['pin'] ?>" title="Envoyer par SMS" class="sendpinbtn">
+				<input type="submit" name="sendpin" value="<?= $person['pin'] ?>" title="Envoyer par SMS/Mail" class="sendpinbtn">
 			</td>
             <td><button type="button" name="diploma" data-pid="<?= $person['id'] ?>">Générer</button></td>
         </tr>
@@ -49,7 +49,7 @@
         </tr>
     </table>
 </form>
-<a href="/">
+<a href="index.php?logout=1">
     <button>Retour</button>
 </a>
 <div id="vnumber">Version 1.0 + Niels</div>

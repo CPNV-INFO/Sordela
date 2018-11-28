@@ -1,3 +1,12 @@
+<?php session_start(); 
+if (isset($_GET['logout']))
+{
+	if ($_GET['logout'] == 1) 
+	{ 
+		session_destroy(); 
+	}
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,14 +28,15 @@ $pdo = dbConnection();
 
 $page = "home";
 extract($_POST);
+if (isset($pin)) { $_SESSION['pin'] = $pin; }
 
 if (isset($printpin)) // Used to generate a PDF file using FPDF and FPDF_JS to print the pin code of the end-user on a Brother P-Touch printer when clicking on the button.
 {
-	ob_clean();
+	ob_clean(); //If i do not do this, FPDF cannot output datas
 	
 	require('fpdf_js.php');
 
-	class PDF_AutoPrint extends PDF_JavaScript
+	class PDF_AutoPrint extends PDF_JavaScript // From : http://www.fpdf.org/en/script/script36.php
 	{
 		function AutoPrint($printer='')
 		{
@@ -58,14 +68,16 @@ if (isset($printpin)) // Used to generate a PDF file using FPDF and FPDF_JS to p
 if (isset($sendpin)) // Used to send the pin code of the end-user to an adress mail who will send it in a SMS to the end-user phone number.
 
 {	
+	//Return the contact field of the selected user from the DB.
 	$contact = $pdo->prepare('select contact from persons where PIN='.$sendpin);
 	$contact->execute();
 	$persons = $contact->fetchAll(PDO::FETCH_ASSOC);
 	
-	$checkMail = "/[a-zA-Z0-9_-.+]+@[a-zA-Z0-9-]+.[a-zA-Z]+/";
 	
 	$to = 'niels.germann@cpnv.ch'; //Need to be changed to the correct email adress used to send the SMS
 	$personContact = str_replace(' ','',$persons[0]['contact']);
+	
+	//Checking if the contact info is a valid number, or a valid mail, and send it by mail with the pin number of the selected user.
 	if (ctype_digit($personContact))
 	{
 		mail($to,$personContact,$sendpin);
@@ -81,8 +93,8 @@ if (isset($sendpin)) // Used to send the pin code of the end-user to an adress m
 		$message = "Adresse mail/Numéro de téléphone non valide.";
 	}
 	
-	
-	$pin=9999;
+	//Used to stay on the same page, as admin.
+	$_SESSION['pin']=9999;
 }
 
 if (isset($diploma)) // request to display a diploma
@@ -157,7 +169,7 @@ if (isset($challengeSubmit))
     }
     // insert grade or update it if exists
     $stmt = $pdo->prepare('insert into grades (challenge_id, person_id, gradeValue) values (:challengeid, (select id from persons where pin = :pin), :grade) on duplicate key update gradeValue=:grade2');
-    $stmt->execute(['challengeid' => $challengeid, 'pin' => $pin, 'grade' => $grade, 'grade2' => $grade]);
+    $stmt->execute(['challengeid' => $challengeid, 'pin' => $_SESSION['pin'], 'grade' => $grade, 'grade2' => $grade]);
 
 }
 
@@ -181,13 +193,13 @@ if (isset($newperson))
     } catch (Exception $e) {
         $message = "Ce nom est déjà pris";
     }
-    $pin = 9999; // redirect to admin
+    $_SESSION['pin'] = 9999; // redirect to admin
 }
 
 // Get person info
-if (isset($pin))
+if (isset($_SESSION['pin']))
 {
-    if ($pin == 9999)
+    if ($_SESSION['pin'] == 9999)
     {
         $cursus = 9;
 
@@ -196,7 +208,7 @@ if (isset($pin))
         $stmt->execute();
         $persons = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } else // participant: search person in db
-        if ($pin == 9998)
+        if ($_SESSION['pin'] == 9998)
         {
             $cursus = 98;
 
@@ -207,7 +219,7 @@ if (isset($pin))
         } else // participant: search person in db
     {
         $stmt = $pdo->prepare('select id, nickname, cursus from persons where PIN = :pin');
-        $stmt->execute(['pin' => $pin]);
+        $stmt->execute(['pin' => $_SESSION['pin']]);
         if ($stmt->rowCount() > 0)
         {
             extract($stmt->fetch(PDO::FETCH_ASSOC));
@@ -236,12 +248,12 @@ if (isset($pin))
                 $qs = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 
                 $stmt3 = $pdo->prepare('select gradeValue from grades inner join persons on person_id = persons.id where challenge_id = :cid and pin = :pin');
-                $stmt3->execute(['cid' => $id, 'pin' => $pin]);
+                $stmt3->execute(['cid' => $id, 'pin' => $_SESSION['pin']]);
                 unset($gradeValue);
                 extract($stmt3->fetch(PDO::FETCH_ASSOC));
 
-                $chals[$id]['qid'] = $qs[$pin % $stmt2->rowCount()]['id'];
-                $chals[$id]['question'] = $qs[$pin % $stmt2->rowCount()]['question'];
+                $chals[$id]['qid'] = $qs[$_SESSION['pin'] % $stmt2->rowCount()]['id'];
+                $chals[$id]['question'] = $qs[$_SESSION['pin'] % $stmt2->rowCount()]['question'];
                 $chals[$id]['text'] = $chal['course'];
                 $chals[$id]['grade'] = $gradeValue;
             }
@@ -266,9 +278,6 @@ switch ($cursus)
     case 9:
         $page = "admin";
         break;
-	case 96:
-		$page = "sendpin";
-		break;
     case 98:
         $page = "admin2";
         break;
