@@ -1,4 +1,5 @@
 <?php
+// Used to be able to open the print dialogue when using FPDF. (JS windows.print() doesn't work with FPDF)
 require('fpdf.php');
 
 class PDF_JavaScript extends FPDF {

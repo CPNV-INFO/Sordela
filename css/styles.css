@@ -43,10 +43,12 @@ body {
 	padding: 5px;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	margin-left: 100px;
+	margin-left: 250px;
 	background-color: #6c87ff;
-	width: 250px;
+	width: 200px;
 	border: 2px solid #2042af;
+	position: absolute;
+	z-index: 10;
 }
 
 .bulletin {
@@ -62,12 +64,26 @@ body {
 	padding: 3px;
 }
 
-.pinbox {
+.printpinbtn {
 	color: white;
+	background-color: #0000;
+	width: 30%;
 }
 
-.pinbox:hover {
+.printpinbtn:hover {
 	color: black;
+}
+
+.sendpinbtn {
+	background: url(../images/phone.png);
+	background-size: 62%;
+	background-repeat: no-repeat;
+	background-position: center;
+	color: white;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 12%;
 }
 
 .typewriterText {

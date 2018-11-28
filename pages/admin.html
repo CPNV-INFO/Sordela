@@ -28,8 +28,8 @@
             ?>
             </td>
 			<td>
-				<input type="submit" name="printPIN" value="<?= $person['pin'] ?>" title="Imprimer" class="pinbox" style="background-color: #0000; width: 30%;">
-				<input type="submit" name="sendPIN" value="<?= $person['pin'] ?>" title="Envoyer par SMS" style="background: url(images/phone.png); background-size: 60%; background-repeat: no-repeat; color: white; text-indent: 100%; white-space: nowrap; overflow: hidden; width: 12%;">
+				<input type="submit" name="printpin" value="<?= $person['pin'] ?>" title="Imprimer" class="printpinbtn">
+				<input type="submit" name="sendpin" value="<?= $person['pin'] ?>" title="Envoyer par SMS" class="sendpinbtn">
 			</td>
             <td><button type="button" name="diploma" data-pid="<?= $person['id'] ?>">Générer</button></td>
         </tr>

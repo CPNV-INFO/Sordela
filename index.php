@@ -20,14 +20,69 @@ $pdo = dbConnection();
 $page = "home";
 extract($_POST);
 
-if (isset($printPIN))
+if (isset($printpin)) // Used to generate a PDF file using FPDF and FPDF_JS to print the pin code of the end-user on a Brother P-Touch printer when clicking on the button.
 {
-	$cursus = 97;
+	ob_clean();
+	
+	require('fpdf_js.php');
+
+	class PDF_AutoPrint extends PDF_JavaScript
+	{
+		function AutoPrint($printer='')
+		{
+			// Open the print dialog
+			if($printer)
+			{
+				$printer = str_replace('\\', '\\\\', $printer);
+				$script = "var pp = getPrintParams();";
+				$script .= "pp.interactive = pp.constants.interactionLevel.full;";
+				$script .= "pp.printerName = '$printer'";
+				$script .= "print(pp);";
+			}
+			else
+				$script = 'print(true);';
+			$this->IncludeJS($script);
+		}
+	}
+
+	$pinCode = new PDF_AutoPrint('L','mm',array(46,24));
+	$pinCode->AddPage();
+	$pinCode->SetFont('Arial','B',32); 
+	$pinCode->SetMargins(0,0,0);	
+	$pinCode->SetAutoPageBreak(0);
+	$pinCode->Cell(0,6,$printpin);
+	$pinCode->AutoPrint();
+	$pinCode->Output('pincode.pdf','I');
 }
 
-if (isset($sendPIN))
-{
-	$cursus = 96;
+if (isset($sendpin)) // Used to send the pin code of the end-user to an adress mail who will send it in a SMS to the end-user phone number.
+
+{	
+	$contact = $pdo->prepare('select contact from persons where PIN='.$sendpin);
+	$contact->execute();
+	$persons = $contact->fetchAll(PDO::FETCH_ASSOC);
+	
+	$checkMail = "/[a-zA-Z0-9_-.+]+@[a-zA-Z0-9-]+.[a-zA-Z]+/";
+	
+	$to = 'niels.germann@cpnv.ch'; //Need to be changed to the correct email adress used to send the SMS
+	$personContact = str_replace(' ','',$persons[0]['contact']);
+	if (ctype_digit($personContact))
+	{
+		mail($to,$personContact,$sendpin);
+		$message = "Code PIN envoyé avec succès par SMS.";
+	}
+	else if (filter_var($personContact, FILTER_VALIDATE_EMAIL))
+	{
+		mail($to,$personContact,$sendpin);
+		$message = "Code PIN envoyé avec succès par mail.";	
+	}
+	else
+	{
+		$message = "Adresse mail/Numéro de téléphone non valide.";
+	}
+	
+	
+	$pin=9999;
 }
 
 if (isset($diploma)) // request to display a diploma
@@ -64,12 +119,18 @@ if (isset($diploma)) // request to display a diploma
         {
             $message = "Moyenne insuffisante";
             $cursus = 9; // bad trick to redirect to admin
+			$stmt = $pdo->prepare('select id, nickname, contact, cursus, pin from persons');
+			$stmt->execute();
+			$persons = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
     }
     else
     {
         $message = "Il manque des notes... ($nbGrades / $nbChallenges)";
         $cursus = 9; // bad trick to redirect to admin
+		$stmt = $pdo->prepare('select id, nickname, contact, cursus, pin from persons');
+        $stmt->execute();
+        $persons = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
 }
@@ -206,10 +267,7 @@ switch ($cursus)
         $page = "admin";
         break;
 	case 96:
-		$page = "sendPIN";
-		break;
-	case 97:
-		$page = "printPIN";
+		$page = "sendpin";
 		break;
     case 98:
         $page = "admin2";
