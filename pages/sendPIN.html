@@ -1,8 +1,27 @@
 <?php
+// Used to send the pin code of the end-user to an adress mail who will send it in a SMS to the end-user phone number.
 
-if (mail())
+$contact = $pdo->prepare('select contact from persons where PIN='.$sendPIN);
+$contact->execute();
+$persons = $contact->fetchAll(PDO::FETCH_ASSOC);
+
+$to = 'niels.germann@cpnv.ch'; //Need to be changed to the correct email adress
+$personNumber = str_replace(' ','',$persons[0]['contact']);
+if (ctype_digit($personNumber))
 {
-	echo "<br>Code PIN envoyé au numéro de téléphone de l'utilisateur.<br>";
+	echo "<br>Numéro de téléphone valide.<br>";
+	
+	if (@mail($to,$personNumber,$sendPIN))
+	{
+		echo "<br>Code PIN envoyé au numéro de téléphone de l'utilisateur.<br>";
+	}
 }
-
+else
+{
+	echo "Numéro de téléphone non valide. Echec de l'envoi du code PIN.";
+}
 ?>
+<br><br>
+<a href="/">
+    <button>Retour</button>
+</a>

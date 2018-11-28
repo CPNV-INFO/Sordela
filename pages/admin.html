@@ -9,7 +9,6 @@
             <th>Contact</th>
             <th>Formation</th>
             <th>PIN</th>
-            <th>PIN</th>
             <th>Diplôme</th>
         </tr>
         <?php foreach ($persons as $person) { ?>
@@ -29,8 +28,8 @@
             ?>
             </td>
 			<td>
-				<input class="pinbox" type="submit" name="printPIN" value="<?= $person['pin'] ?>" style="background-color: #0000; width: 80%;">
-				<input type="submit" name="sendPIN" value="">
+				<input type="submit" name="printPIN" value="<?= $person['pin'] ?>" title="Imprimer" class="pinbox" style="background-color: #0000; width: 30%;">
+				<input type="submit" name="sendPIN" value="<?= $person['pin'] ?>" title="Envoyer par SMS" style="background: url(images/phone.png); background-size: 60%; background-repeat: no-repeat; color: white; text-indent: 100%; white-space: nowrap; overflow: hidden; width: 12%;">
 			</td>
             <td><button type="button" name="diploma" data-pid="<?= $person['id'] ?>">Générer</button></td>
         </tr>
