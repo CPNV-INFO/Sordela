@@ -25,6 +25,11 @@ if (isset($printPIN))
 	$cursus = 97;
 }
 
+if (isset($sendPIN))
+{
+	$cursus = 96;
+}
+
 if (isset($diploma)) // request to display a diploma
 {
     // get person info
@@ -200,6 +205,9 @@ switch ($cursus)
     case 9:
         $page = "admin";
         break;
+	case 96:
+		$page = "sendPIN";
+		break;
 	case 97:
 		$page = "printPIN";
 		break;

@@ -28,7 +28,10 @@
             }
             ?>
             </td>
-			<td><input class="pinbox" type="submit" name="printPIN" value="<?= $person['pin'] ?>" style="background-color: #0000; width: 80%;"></td>
+			<td>
+				<input class="pinbox" type="submit" name="printPIN" value="<?= $person['pin'] ?>" style="background-color: #0000; width: 80%;">
+				<input type="submit" name="sendPIN" value="">
+			</td>
             <td><button type="button" name="diploma" data-pid="<?= $person['id'] ?>">Générer</button></td>
         </tr>
         <?php } ?>

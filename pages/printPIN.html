@@ -1,11 +1,36 @@
 <?php
 	ob_clean();
-	require('fpdf.php'); //Used to print pin code
-	$test = new FPDF('L','mm',array(40,24));
-	$test->AddPage();
-	$test->SetFont('Arial','B',24); 
-	$test->SetMargins(0,0,0);	
-	$test->SetAutoPageBreak(0);
-	$test->Cell(0,6,$printPIN);
-	$test->Output('pincode.pdf','I');
+	
+	require('fpdf_js.php');
+
+	class PDF_AutoPrint extends PDF_JavaScript
+	{
+		function AutoPrint($printer='')
+		{
+			// Open the print dialog
+			if($printer)
+			{
+				$printer = str_replace('\\', '\\\\', $printer);
+				$script = "var pp = getPrintParams();";
+				$script .= "pp.interactive = pp.constants.interactionLevel.full;";
+				$script .= "pp.printerName = '$printer'";
+				$script .= "print(pp);";
+			}
+			else
+				$script = 'print(true);';
+			$this->IncludeJS($script);
+		}
+	}
+
+	
+	
+	//require('fpdf.php'); //Used to print pin code
+	$pinCode = new PDF_AutoPrint('L','mm',array(46,24));
+	$pinCode->AddPage();
+	$pinCode->SetFont('Arial','B',32); 
+	$pinCode->SetMargins(0,0,0);	
+	$pinCode->SetAutoPageBreak(0);
+	$pinCode->Cell(0,6,$printPIN);
+	$pinCode->AutoPrint();
+	$pinCode->Output('pincode.pdf','I');
 ?>
