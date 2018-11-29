@@ -63,18 +63,23 @@ if (isset($sendpin)) // Used to send the pin code of the end-user to an adress m
 	$contact->execute();
 	$persons = $contact->fetchAll(PDO::FETCH_ASSOC);
 	
+	$headers = array(
+		'From' => 'noreply@cpnv.ch',
+		'Reply-To' => 'noreply@cpnv.ch',
+		'X-Mailer' => 'PHP/' . phpversion()
+	);
 	
 	$personContact = str_replace(' ','',$persons[0]['contact']);
 	$to = $personContact."@sms.admin.ch";
 	//Checking if the contact info is a valid number, or a valid mail, and send it by mail with the pin number of the selected user.
 	if (ctype_digit($personContact))
 	{
-		mail($to,"Code PIN CPNV",$sendpin); //Send the code to <number>@sms.admin.ch, who will send the SMS with the PIN code.
+		mail($to,$sendpin,$sendpin,$headers); //Send the code to <number>@sms.admin.ch, who will send the SMS with the PIN code.
 		$message = "Code PIN envoyé avec succès par SMS.";
 	}
 	else if (filter_var($personContact, FILTER_VALIDATE_EMAIL))
 	{
-		mail($personContact,"Code PIN CPNV",$sendpin); //Send the code directly to the mail of the user.
+		mail($personContact,$sendpin,$sendpin,$headers); //Send the code directly to the mail of the user.
 		$message = "Code PIN envoyé avec succès par mail.";	
 	}
 	else
