@@ -11,12 +11,12 @@ Pour lancer le site web en mode kiosk, il faut commencer par ajouter un paramèt
 3. Dans le champ "Cible", rajouter à la fin le paramètre suivant (un espace après le guillement) : 
 > -kiosk http://urldusite.com/
 4. Lancer Disable_Hotkeys_Sordela.exe qui se trouve dans le projet Sordela/Niels. Cet exécutable permet de bloquer les raccourcis suivants: 
-- Alt-Tab
-- Touches Windows
-- Alt-F4
-- Alt-Esc
-- Ctrl-T
-- Ctrl-N
-- Ctrl-Shift-N
-
+    - Alt-Tab
+    - Touches Windows
+    - Alt-F4
+    - Alt-Esc
+    - Ctrl-T
+    - Ctrl-N
+    - Ctrl-Shift-N
+    
 5. Double cliquer sur le raccourci de Chrome
