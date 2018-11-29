@@ -28,3 +28,23 @@ $(document).ready(function () {
         $('#alert').fadeOut();
     }, 2000);
 })
+
+function idleLogout() { //Detect if any button/touchscreen/click is pressed, and call resetTimer
+    var t;
+    window.onload = resetTimer;
+    window.onmousemove = resetTimer;
+    window.onmousedown = resetTimer;      
+    window.ontouchstart = resetTimer;
+    window.onclick = resetTimer;
+    window.onkeypress = resetTimer;   
+    window.addEventListener('scroll', resetTimer, true);
+
+    function logout() { //Redirect to the index.php page.
+		window.location.href = 'index.php';
+    }
+
+    function resetTimer() { //Clear the timeout value and call the logout function after 60 seconds.
+        clearTimeout(t);
+        t = setTimeout(logout, 60000);  // time is in milliseconds
+    }
+}

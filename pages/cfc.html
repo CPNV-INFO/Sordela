@@ -1,7 +1,9 @@
 <?php if (isset($message)) { ?>
 <div id="alert"><?= $message ?></div>
 <?php } ?>
-
+<script type="text/javascript">
+	idleLogout(); // Used to logout the user after 1 minute of inactivity. Declared in code.js
+</script>
 
 <table class="bulletin" style="border:none;">
     <tbody>
